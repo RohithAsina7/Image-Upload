@@ -20,11 +20,16 @@ import { AuthHttp, AuthConfig, AUTH_PROVIDERS, provideAuth } from 'angular2-jwt'
 import { HttpModule } from '@angular/http';
 import { Auth } from './shared-service/auth.service';
 
+
+//womens_day_theme
+import { WomensdayComponent } from "./womensday/womensday.component";
+import { WomensDayService } from "./womensday/womensday.service";
 @NgModule({
   declarations: [
     AppComponent,
     ImageUploadComponent,
-    DashboardComponent
+    DashboardComponent,
+    WomensdayComponent
   ],
   imports: [
     BrowserModule,
@@ -39,15 +44,16 @@ import { Auth } from './shared-service/auth.service';
     ApiService,
     Auth,
     ImageService,
-  
+    WomensDayService,
+
     AuthHttp,
     provideAuth({
-        headerName: 'Authorization',
-        headerPrefix: 'bearer',
-        tokenName: 'token',
-        tokenGetter: (() => localStorage.getItem('id_token')),
-        globalHeaders: [{ 'Content-Type': 'application/json' }],
-        noJwtError: true
+      headerName: 'Authorization',
+      headerPrefix: 'bearer',
+      tokenName: 'token',
+      tokenGetter: (() => localStorage.getItem('id_token')),
+      globalHeaders: [{ 'Content-Type': 'application/json' }],
+      noJwtError: true
     })
   ],
   bootstrap: [AppComponent]

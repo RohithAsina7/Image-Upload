@@ -23,7 +23,9 @@ export class DashboardComponent implements OnInit {
   }
 
   image(value) {
-    console.log(value);
-    this._routes.navigate(["/image_upload"]);
+    if (value == 'image_upload')
+      this._routes.navigate(["/image_upload"]);
+    else if (value == 'google')
+      this._routes.navigate(["/google"]);
   }
 }
