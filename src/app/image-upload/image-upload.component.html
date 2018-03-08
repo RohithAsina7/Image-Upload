@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <label>
+        <b>Upload a Image</b>
+      </label>
+      <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" class="form-control-file">
+    </div>
+    <div class="col-md-6">
+      <img class="img-responsive  img_box" style="margin: 19px;width:200px;" src="{{imagePreview }}" />
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let item of image_det" >
+      <div class="col-md-1">
+          <img class="img-responsive  img_box" style="margin: 19px;width:200px;" src="{{image_path + item.img_name }}" />
+      </div>
+    </div>
+  </div>
+</div>
